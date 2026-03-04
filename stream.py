@@ -46,7 +46,7 @@ text = {
         "high": "高风险",
         "low": "低风险",
         "threshold": "阈值",
-        "disclaimer": "免责声明：本结果仅供参考，不可作为诊断或治疗决策依据。"
+        "disclaimer": "免责声明：本结果仅供参考，不可作为诊断或治疗决策依据。",
         "feature_labels": {
             "Antibiotic use": "抗生素使用",
             "Circulatory Failure": "循环衰竭",
