@@ -28,12 +28,11 @@ text = {
             "Antibiotic use": "Antibiotic Use",
             "Circulatory Failure": "Circulatory Failure",
             "HE": "Hepatic Encephalopathy",
-            "Alb": "Albumin (g/L)",
+            "ALB": "Albumin (g/L)",
             "WBC": "White Blood Cells (×10⁹/L)",
             "INR": "INR",
             "Cr": "Creatinine (µmol/L)",
             "CRP": "C-reactive Protein (mg/L)",
-            "LDL-C": "LDL-C (mmol/L)"
         }
     },
     "中文": {
@@ -51,12 +50,11 @@ text = {
             "Antibiotic use": "抗生素使用",
             "Circulatory Failure": "循环衰竭",
             "HE": "肝性脑病",
-            "Alb": "白蛋白 (g/L)",
+            "ALB": "白蛋白 (g/L)",
             "WBC": "白细胞 (×10⁹/L)",
             "INR": "INR",
             "Cr": "肌酐 (µmol/L)",
             "CRP": "C反应蛋白 (mg/L)",
-            "LDL-C": "低密度脂蛋白 (mmol/L)"
         }
     }
 }
@@ -72,12 +70,11 @@ feature_names = [
     'Antibiotic use',
     'Circulatory Failure',
     'HE',
-    'Alb',
+    'ALB',
     'WBC',
     'INR',
     'Cr',
     'CRP',
-    'LDL-C'
 ]
 
 # =========================
@@ -98,8 +95,8 @@ for feature in binary_features:
     choice = st.selectbox(label, ["No", "Yes"] if lang=="English" else ["否","是"])
     user_input[feature] = 1 if choice in ["Yes","是"] else 0
 
-numeric_features = ['Alb','WBC','INR','Cr','CRP','LDL-C']
-default_values = {'Alb':30,'WBC':6,'INR':1.2,'Cr':70,'CRP':20,'LDL-C':2.5}
+numeric_features = ['ALB','WBC','INR','Cr','CRP']
+default_values = {'ALB':30,'WBC':6,'INR':1.2,'Cr':70,'CRP':20}
 
 st.subheader(t["numeric_title"])
 
@@ -120,7 +117,7 @@ if st.button(t["predict_button"]):
 
     st.write(f"**{t['infection_prob']}：** {class1_prob:.1f}%")
 
-    threshold = 0.404
+    threshold = 0.402
     risk = t["high"] if class1_prob/100 >= threshold else t["low"]
     st.write(f"**{t['risk_result']}（{t['threshold']} {threshold:.3f}）：** {risk}")
 
