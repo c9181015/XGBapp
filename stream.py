@@ -117,7 +117,7 @@ if st.button(t["predict_button"]):
 
     st.write(f"**{t['infection_prob']}：** {class1_prob:.1f}%")
 
-    threshold = 0.402
+    threshold = 0.386
     risk = t["high"] if class1_prob/100 >= threshold else t["low"]
     st.write(f"**{t['risk_result']}（{t['threshold']} {threshold:.3f}）：** {risk}")
 
